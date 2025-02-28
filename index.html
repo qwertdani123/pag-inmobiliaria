@@ -22,7 +22,8 @@
         <img src="imgN/img/LogoFernandez.png" alt="logo"> 
     </header>
     
-    <h1 class="titulo-barra-inicio">Inmobiliaria devora fernandez</h1>
+    <h1 class="titulo-barra-inicio"><span id="typed-text">Inmobiliaria Fernandez</span></h1>
+
     <nav>
         
         <a href="#inicio"><strong>Inicio</strong> </a> 
@@ -198,7 +199,7 @@
       <div class="container">
         <h1 >Nuestros servicios </h1>
         <div class="row-cartas">
-          <div class="col">
+          <div class="col hidden">
             <div class="card" >
               <img src="imgN/img/inmuebles-ventajpg.webp" class="card-img-top" alt="...">
               <div class="card-body">
@@ -296,5 +297,35 @@
         
     </footer>
 
+    
+    <script>
+      window.addEventListener("scroll", function () {
+        const barra = document.querySelector(".Barra-inicio");
+        if (window.scrollY > 50) {
+          barra.classList.add("scroll");
+        } else {
+          barra.classList.remove("scroll");
+        }
+      });
+    </script>
+
+          
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const elementos = document.querySelectorAll(".hidden");
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        }, { threshold: 0.2 });
+    
+        elementos.forEach((el) => observer.observe(el));
+      });
+    </script>
+    
 </body>
 </html>

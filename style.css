@@ -1,5 +1,43 @@
 /*  #f9f9f9;  gris claro */
 
+/* Animación de entrada para las tarjetas */
+.card1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.Barra-inicio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255); 
+  transition: all 0.3s ease;
+  box-shadow: none;
+  z-index: 1000;
+}
+
+.Barra-inicio.scroll {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo sólido cuando hace scroll */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card1 img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card1:hover img {
+  transform: scale(1.05); /* Zoom al pasar el mouse */
+}
+
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -11,7 +49,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  color: #1c2d47;
+  color: #174185;
   padding: 1em;
   width: 100%;
   height: 100px;
@@ -55,9 +93,24 @@ nav a:hover {
   margin-bottom: 8px;
 }
 
-.contacto-linea {
-  margin-left: 10px;
+.contacto_linea {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+ 
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+ 
+  animation: pulse 1.5s infinite;
+  transition: transform 0.3s ease-in-out;
 }
+
+.contacto_linea:hover {
+  transform: scale(1.1);
+}
+
+
 
 /* Media Queries para pantallas más pequeñas */
 
@@ -347,6 +400,17 @@ section {
   margin-top: 10px; /* Espaciado superior */
 }
 
+@media (max-width: 768px) {
+  .contacto_linea {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .Barra-inicio {
+    display: contents;
+  }
+}
 
 @media (max-width: 1200px) {
   .contacto .row {
